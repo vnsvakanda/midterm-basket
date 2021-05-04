@@ -8,6 +8,9 @@ from gamelib import Sprite, GameApp, Text
 from consts import *
 
 class SlowFruit(Sprite):
+
+    score = 2
+
     def __init__(self, app, x, y):
         super().__init__(app, 'images/apple.png', x, y)
 
@@ -21,6 +24,9 @@ class SlowFruit(Sprite):
 
 
 class FastFruit(Sprite):
+
+    score = 4
+
     def __init__(self, app, x, y):
         super().__init__(app, 'images/banana.png', x, y)
 
@@ -34,6 +40,9 @@ class FastFruit(Sprite):
 
 
 class SlideFruit(Sprite):
+
+    score = 6
+
     def __init__(self, app, x, y):
         super().__init__(app, 'images/cherry.png', x, y)
 
@@ -49,6 +58,9 @@ class SlideFruit(Sprite):
 
 
 class CurvyFruit(Sprite):
+
+    score = 8
+
     def __init__(self, app, x, y):
         super().__init__(app, 'images/pear.png', x, y)
 
@@ -82,7 +94,7 @@ class Basket(Sprite):
     def check_collision(self, fruit):
         if self.distance_to(fruit) <= BASKET_CATCH_DISTANCE:
             fruit.to_be_deleted = True
-            self.app.score += 1
+            self.app.score += fruit.score
             self.app.update_score()
 
 
